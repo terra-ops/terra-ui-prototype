@@ -8,7 +8,7 @@ hooks:
     cd terra_ui
     composer install
 
-  enable_first:
+  enable_first: |
     drush {{alias}} site-install standard
     drush {{alias}} en -y terra_ui
     drush {{alias}} uli
