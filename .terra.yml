@@ -1,0 +1,14 @@
+document_root: www
+hooks:
+  build: |
+    drush dl drupal-7.38
+    mv drupal-7.38 www
+    cd www/sites/all/modules
+    git clone https://github.com/albatrossdigital/terra_ui
+    cd terra_ui
+    composer install
+
+  enable_first:
+    drush {{alias}} site-install standard
+    drush {{alias}} en -y terra_ui
+    drush {{alias}} uli
