@@ -12,10 +12,10 @@ hooks:
     drush {{alias}} site-install standard --db-url=mysql://drupal:drupal@database/drupal -y
     drush {{alias}} en -y terra_ui
     echo "\$conf['amqp_server'] = array(
-  'host' => 'localhost',
-  'port' => 5672,
-  'user' => 'guest',
-  'pass' => 'guest',
-  'queue' => 'terra',
-);" >> www/sites/default/settings.php
+      'host' => 'localhost',
+      'port' => 5672,
+      'user' => 'guest',
+      'pass' => 'guest',
+      'queue' => 'terra',
+    );" >> www/sites/default/settings.php
     drush {{alias}} uli
