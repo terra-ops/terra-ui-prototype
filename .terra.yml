@@ -1,9 +1,12 @@
 document_root: www
 docker_compose:
-  app_services:
+  overrides:
     queue:
       image: rabbitmq
       hostname: terra-rabbit
+    app:
+      links:
+        - queue
 
 hooks:
   build: |
