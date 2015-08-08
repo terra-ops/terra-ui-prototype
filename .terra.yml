@@ -9,6 +9,6 @@ hooks:
     composer install
 
   enable_first: |
-    drush {{alias}} site-install standard --db-url=mysql://drupal:drupal@database/drupal
+    drush {{alias}} site-install standard --db-url=mysql://drupal:drupal@database/drupal -y
     drush {{alias}} en -y terra_ui
     drush {{alias}} uli
