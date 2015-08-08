@@ -4,6 +4,9 @@ docker_compose:
     queue:
       image: rabbitmq:3-management
       hostname: terra-rabbit
+      ports:
+        - '8080:15672'
+        - '5672'
     app:
       links:
         - queue
