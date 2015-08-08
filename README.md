@@ -13,11 +13,17 @@ terra env:add ui local --enable
 ````
 This launches a RabbitMQ container as well as the drupal stack.
 
-Then run the "receiver":
+Then run the "queue" command:
 
-`php ~/Apps/ui/local/terra-callback/receiver.php`
+```
+$ terra queue
+```
 
-This will become a command in terra.
+This command defaults to using "local.computer" (IP 192.168.99.100) as the host of the rabbitMQ server.  If you are running it on a different server, use:
+
+```
+$ terra queue tcp://guest:guest@1.2.3.4:5672/terra
+```
 
 This command runs continuously, running queued commands the moment they hits the queue.
 
