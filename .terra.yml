@@ -2,7 +2,7 @@ document_root: www
 docker_compose:
   overrides:
     queue:
-      image: rabbitmq
+      image: rabbitmq:3-management
       hostname: terra-rabbit
     app:
       links:
