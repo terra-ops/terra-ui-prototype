@@ -7,10 +7,7 @@ hooks:
     git clone https://github.com/albatrossdigital/terra_ui
     cd terra_ui
     composer install
-
-  enable_first: |
-    drush {{alias}} site-install standard --db-url=mysql://drupal:drupal@database/drupal -y
-    drush {{alias}} en -y terra_ui
+    cp www/sites/default/default.settings.php www/sites/default/settings.php
     echo "\$conf['amqp_server'] = array(
       'host' => 'localhost',
       'port' => 5672,
@@ -18,4 +15,8 @@ hooks:
       'pass' => 'guest',
       'queue' => 'terra',
     );" >> www/sites/default/settings.php
+
+  enable_first: |
+    drush {{alias}} site-install standard --db-url=mysql://drupal:drupal@database/drupal -y
+    drush {{alias}} en -y terra_ui
     drush {{alias}} uli
