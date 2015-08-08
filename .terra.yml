@@ -1,4 +1,10 @@
 document_root: www
+docker_compose:
+  app_services:
+    queue:
+      image: rabbitmq
+      hostname: terra-rabbit
+
 hooks:
   build: |
     drush dl drupal-7.38
@@ -9,7 +15,7 @@ hooks:
     composer install
     cp www/sites/default/default.settings.php www/sites/default/settings.php
     echo "\$conf['amqp_server'] = array(
-      'host' => 'localhost',
+      'host' => 'queue',
       'port' => 5672,
       'user' => 'guest',
       'pass' => 'guest',
