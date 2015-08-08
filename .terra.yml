@@ -6,7 +6,7 @@ docker_compose:
       hostname: terra-rabbit
       ports:
         - '8080:15672'
-        - '5672'
+        - '5672:5672'
     app:
       links:
         - queue
@@ -22,7 +22,7 @@ hooks:
       'user' => 'guest',
       'pass' => 'guest',
       'queue' => 'terra',
-    );" >> www/sites/default/settings.php
+      );" >> www/sites/default/settings.php
     cd www/sites/all/modules
     git clone https://github.com/albatrossdigital/terra_ui
     cd terra_ui
